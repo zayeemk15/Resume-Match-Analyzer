@@ -17,7 +17,7 @@ class Settings(BaseSettings):
     )
 
     # ── App ────────────────────────────────────────────────────
-    app_name: str = "AI Resume Analyzer"
+    app_name: str = "Resume match anaalyzer by zayeem"
     version: str = "1.0.0"
     debug: bool = Field(default=False)
     log_level: str = "INFO"
