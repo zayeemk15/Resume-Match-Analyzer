@@ -213,7 +213,7 @@ async def rank_resumes(
 async def get_history(db: AsyncSession, limit: int = 20) -> list:
     """Retrieve recent analysis history."""
     try:
-        stmt = select(models.Analysis).order_by(models.Analysis.created_at.desc()).limit(limit)
+        stmt = select(models.AnalysisResult).order_by(models.AnalysisResult.created_at.desc()).limit(limit)
         result = await db.execute(stmt)
         return list(result.scalars().all())
     except Exception as exc:
@@ -223,7 +223,7 @@ async def get_history(db: AsyncSession, limit: int = 20) -> list:
 async def delete_history_item(db: AsyncSession, analysis_id: str) -> bool:
     """Delete an analysis from history."""
     try:
-        stmt = delete(models.Analysis).where(models.Analysis.id == analysis_id)
+        stmt = delete(models.AnalysisResult).where(models.AnalysisResult.id == analysis_id)
         await db.execute(stmt)
         await db.commit()
         return True

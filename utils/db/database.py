@@ -30,7 +30,7 @@ class Base(DeclarativeBase):
 
 async def create_tables():
     """Create all tables if they don't exist."""
-    from utils.db.models import Analysis, ResumeFile  # Ensure models are loaded
+    from utils.db.models import AnalysisResult, ResumeFile  # Ensure models are loaded
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
     logger.info("Database tables created/verified")
