@@ -2,7 +2,7 @@ streamlit
 pandas
 numpy
 scikit-learn
-sentence-transformers
+sentence-transformers==2.6.1
 PyPDF2
 python-docx
 requests
@@ -14,4 +14,4 @@ pydantic
 python-dotenv
 tenacity
 structlog
-torch --index-url https://download.pytorch.org/whl/cpu
+torch==2.2.2 --index-url https://download.pytorch.org/whl/cpu
