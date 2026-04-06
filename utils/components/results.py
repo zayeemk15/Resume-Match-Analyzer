@@ -30,13 +30,43 @@ def render_results(data: dict):
 
     # ── Workflow Indicator: Stage 2 ──────────────────────────────
     st.markdown("""
-    <div style="display: flex; justify-content: center; margin-bottom: 2rem;">
-        <div style="display: flex; align-items: center; gap: 10px;">
-            <div style="background: #10B981; color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">✓</div>
-            <span style="font-weight: 600; color: #10B981;">Upload</span>
-            <div style="width: 50px; height: 2px; background: #10B981;"></div>
-            <div style="background: var(--primary); color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">2</div>
-            <span style="font-weight: 600; color: var(--text-main);">Analyze</span>
+    <style>
+    .stepper-container {
+        display: flex; justify-content: center; margin-bottom: 3rem; margin-top: 1rem;
+    }
+    .stepper-wrapper {
+        display: flex; align-items: center; gap: 15px;
+        background: var(--glass-bg); padding: 15px 30px; border-radius: 50px;
+        border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        backdrop-filter: blur(12px);
+    }
+    .step-circle {
+        width: 36px; height: 36px; border-radius: 50%;
+        display: flex; align-items: center; justify-content: center; font-weight: 700;
+        box-shadow: 0 0 15px rgba(34, 197, 94, 0.4);
+    }
+    .step-circle.completed {
+        background: var(--accent); color: #064E3B;
+    }
+    .step-circle.active {
+        background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white;
+        box-shadow: 0 0 15px rgba(79, 70, 229, 0.4);
+    }
+    .step-line {
+        width: 60px; height: 3px; border-radius: 2px;
+        background: linear-gradient(90deg, var(--accent) 0%, var(--primary) 100%);
+    }
+    .step-text { font-weight: 600; font-size: 1.05rem; }
+    .step-text.completed { color: var(--accent); }
+    .step-text.active { color: var(--text-main); }
+    </style>
+    <div class="stepper-container">
+        <div class="stepper-wrapper">
+            <div class="step-circle completed">✓</div>
+            <span class="step-text completed">Upload</span>
+            <div class="step-line"></div>
+            <div class="step-circle active">2</div>
+            <span class="step-text active">Analyze</span>
         </div>
     </div>
     """, unsafe_allow_html=True)
