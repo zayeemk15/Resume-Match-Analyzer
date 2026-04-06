@@ -1,0 +1,26 @@
+# ── AI Resume Analyzer .gitignore ─────────────────────────────
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+.env
+
+# Database
+*.sqlite
+*.db
+
+# Data & Uploads
+uploads/
+data/raw/
+data/processed/
+
+# IDEs
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
